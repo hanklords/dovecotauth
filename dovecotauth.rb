@@ -19,15 +19,18 @@ require 'base64'
 class DovecotAuth
   VERSION="0.1"
   DEFAULT_PATH="/var/run/dovecot/auth".freeze
-  CONNECT_LINE="VERSION\t1\t1\nCPID\t#{$$}\nAUTH\t1\tPLAIN\tservice=%s\tresp=%s\n".freeze
+  CONNECT_LINE="VERSION\t1\t1\nCPID\t%d\n".freeze
+  AUTH_LINE="AUTH\t1\tPLAIN\tservice=%s\tresp=%s\n".freeze
   
   def initialize(path = DEFAULT_PATH); @path = path end
-  def auth_line(u, p, s); CONNECT_LINE % [s, Base64.strict_encode64("\0#{u}\0#{p}")] end
+  def auth_line(u, p, s); AUTH_LINE % [s, Base64.strict_encode64("\0#{u}\0#{p}")] end
   def authenticate(username, password, service = "imap")
     UNIXSocket.open(@path) {|f|
+      line = ""
+      f.write CONNECT_LINE % object_id
+      line = f.gets while line.strip != "DONE"
       f.write auth_line(username, password, service)
-      f.close_write
-      f.read =~ /^OK/ ? true : false
+      f.gets =~ /^OK/ ? true : false
     }                       
   end
 end
