@@ -13,5 +13,5 @@ Gem::Specification.new do |s|
   s.homepage = "http://hanklords.github.com/dovecotauth"
   s.files = %w(dovecotauth.rb)
   s.require_paths = %w(.)
-  s.version = DovecotAuth::VERSION
+  s.version = DovecotAuth::VERSION.dup
 end
