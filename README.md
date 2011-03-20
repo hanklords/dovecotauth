@@ -1,7 +1,7 @@
 dovecotauth
 ===========
 
-dovecotauth is a library to connect to dovecot-auth
+dovecotauth is a library to connect to [dovecot](http://www.dovecot.org/) authentication module
 
 Usage
 -----
