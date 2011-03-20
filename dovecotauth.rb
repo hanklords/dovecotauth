@@ -17,7 +17,7 @@ require 'socket'
 require 'base64'
 
 class DovecotAuth
-  VERSION="0.1"
+  VERSION="0.2".freeze
   DEFAULT_PATH="/var/run/dovecot/auth".freeze
   CONNECT_LINE="VERSION\t1\t1\nCPID\t%d\n".freeze
   AUTH_LINE="AUTH\t1\tPLAIN\tservice=%s\tresp=%s\n".freeze
