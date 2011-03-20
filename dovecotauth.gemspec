@@ -12,5 +12,6 @@ Gem::Specification.new do |s|
   s.email =  "mael@clerambault.fr"
   s.homepage = "http://hanklords.github.com/dovecotauth"
   s.files = %w(dovecotauth.rb)
+  s.require_paths = %w(.)
   s.version = DovecotAuth::VERSION
 end
