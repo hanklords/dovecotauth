@@ -1,8 +1,10 @@
 dovecotauth
+===========
 
 dovecotauth is a library to connect to dovecot-auth
 
-= Usage
+Usage
+-----
 
     require 'dovecotauth'
 
