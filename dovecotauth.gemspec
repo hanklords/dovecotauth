@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.summary = "Ruby client to dovecot-auth"
   s.author = "Maël Clérambault"
   s.email =  "mael@clerambault.fr"
-  s.homepage = "http://hanklords.github.com/dovecotauth"
+  s.homepage = "http://github.com/hanklords/dovecotauth"
   s.files = %w(dovecotauth.rb)
   s.require_paths = %w(.)
   s.version = DovecotAuth::VERSION.dup
